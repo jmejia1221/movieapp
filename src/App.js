@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 // Components
 import Navigation from "./components/Layout/Header/Navigation";
@@ -19,13 +19,14 @@ function App() {
             </header>
             <section>
                 <switch>
-                    <Route path="/home">
+                    <Route exact path="/" render={() => <Redirect to="home" />} />
+                    <Route exact path="/home">
                         <Home />
                     </Route>
-                    <Route path="/create-movie">
+                    <Route exact path="/create-movie">
                         <MovieCreation />
                     </Route>
-                    <Route path="/top-movies">
+                    <Route exact path="/top-movies">
                         <TopMovies />
                     </Route>
                 </switch>
