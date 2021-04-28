@@ -1,0 +1,36 @@
+@import "_variables.scss";
+
+* {
+  &:after,
+  &:before {
+    box-sizing: inherit;
+  }
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}

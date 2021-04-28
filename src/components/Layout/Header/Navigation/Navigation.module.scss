@@ -1,0 +1,11 @@
+.container {
+  .list {
+    display: flex;
+    align-items: center;
+    .item {
+      a {
+        color: var(--white);
+      }
+    }
+  }
+}

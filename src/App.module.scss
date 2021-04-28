@@ -1,0 +1,12 @@
+.App {
+  height: 100%;
+  background-color: var(--primary);
+  .container {
+    inset: 0;
+    top: 6rem;
+    position: absolute;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+    background-color: var(--white);
+  }
+}

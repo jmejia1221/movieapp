@@ -1,7 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 
 // Components
-import Navigation from "./components/Layout/Header/Navigation";
+import Header from "./components/Layout/Header";
 
 // Pages
 import Home from "./pages/home";
@@ -9,15 +9,13 @@ import MovieCreation from "./pages/MovieCreation";
 import TopMovies from "./pages/TopMovies";
 
 // CSS
-import styles from './App.scss';
+import styles from './App.module.scss';
 
 function App() {
     return (
         <div className={styles.App}>
-            <header className="App-header">
-                <Navigation />
-            </header>
-            <section>
+            <Header />
+            <section className={styles.container}>
                 <switch>
                     <Route exact path="/" render={() => <Redirect to="home" />} />
                     <Route exact path="/home">
