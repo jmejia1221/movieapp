@@ -1,0 +1,15 @@
+.container {
+  cursor: pointer;
+  color: var(--secondary);
+  height: 3.5rem;
+  padding: 0 3rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid var(--secondary);
+  transition: background-color, color .3s;
+  &:hover {
+    color: var(--white);
+    background-color: var(--secondary);
+  }
+}

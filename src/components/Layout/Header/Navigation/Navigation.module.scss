@@ -3,8 +3,24 @@
     display: flex;
     align-items: center;
     .item {
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-right: 1rem;
+      color: var(--white);
+      list-style-type: disc;
+      list-style-position: inside;
+      &:first-child {
+        list-style-type: none;
+      }
       a {
         color: var(--white);
+        &:hover {
+          color: var(--secondary);
+        }
+        &.active {
+          color: var(--secondary);
+        }
       }
     }
   }

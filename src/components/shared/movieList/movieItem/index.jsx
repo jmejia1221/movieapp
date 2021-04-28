@@ -1,8 +1,13 @@
 import React from "react";
 
-const MovieItem = () => {
+const MovieItem = ({ title, release, onClick }) => {
     return (
-        <h1>Item</h1>
+        <>
+            <li onClick={() => onClick({title, release})}>
+                <h3>{title}</h3>
+                <span>{release}</span>
+            </li>
+        </>
     );
 };
 

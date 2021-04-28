@@ -1,0 +1,16 @@
+.buttonAddMovie {
+  position: absolute;
+  right: 4rem;
+  top: 3rem;
+}
+.container {
+  display: flex;
+  margin: 4rem auto 0;
+  max-width: 96rem;
+  .aside {
+    min-width: 20rem;
+    max-width: 20rem;
+  }
+  .details {
+  }
+}

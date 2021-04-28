@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 // Components
 import Header from "./components/Layout/Header";
@@ -16,7 +16,7 @@ function App() {
         <div className={styles.App}>
             <Header />
             <section className={styles.container}>
-                <switch>
+                <Switch>
                     <Route exact path="/" render={() => <Redirect to="home" />} />
                     <Route exact path="/home">
                         <Home />
@@ -27,7 +27,7 @@ function App() {
                     <Route exact path="/top-movies">
                         <TopMovies />
                     </Route>
-                </switch>
+                </Switch>
             </section>
         </div>
     );
