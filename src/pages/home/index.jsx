@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, {useCallback, useReducer, useState} from 'react';
 
 import { useHistory } from "react-router-dom";
 
@@ -22,13 +22,13 @@ const Home = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [movieDetail, setMovieDetail] = useState({});
 
-    // const addMovieHandler = () => {
-    //     const payload = {
-    //         title: 'batman12',
-    //         release: '24/25/25'
-    //     };
-    //     addMovie(payload, dispatch)
-    // };
+    const movie = () => {
+        const payload = {
+            title: 'batman12',
+            release: '24/25/25'
+        };
+        addMovie(payload, dispatch)
+    };
 
     const addMovieHandler = () => {
         history.push('/create-movie');
@@ -40,6 +40,7 @@ const Home = () => {
 
     return (
         <>
+            <Button onClick={movie}>Testing</Button>
             <Button
                 classname={styles.buttonAddMovie}
                 onClick={addMovieHandler}>

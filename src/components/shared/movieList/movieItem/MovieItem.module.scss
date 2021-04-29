@@ -1,0 +1,16 @@
+.item {
+  background-color: #eee;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  &:hover {
+    border-left: .5rem solid var(--secondary);
+  }
+  .title {
+    margin: 0;
+  }
+  &.active {
+    border-left: .5rem solid var(--secondary);
+  }
+}
