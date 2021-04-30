@@ -1,4 +1,5 @@
-import React, {useCallback, useReducer, useState} from 'react';
+import React, { useReducer, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { useHistory } from "react-router-dom";
 
@@ -24,7 +25,8 @@ const Home = () => {
 
     const movie = () => {
         const payload = {
-            title: 'batman12',
+            id: uuid(),
+            title: 'batman11',
             release: '24/25/25'
         };
         addMovie(payload, dispatch)
@@ -48,7 +50,10 @@ const Home = () => {
             </Button>
             <div className={styles.container}>
                 <aside className={styles.aside}>
-                    <MovieList onClick={showMovieDetail} list={state.movieList} />
+                    <MovieList
+                        active={movieDetail.id}
+                        onClick={showMovieDetail}
+                        list={state.movieList} />
                 </aside>
                 <section className={styles.detail}>
                     <MovieDetail movieDetail={movieDetail} />

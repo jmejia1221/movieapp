@@ -4,14 +4,14 @@ import { v4 as uuid } from 'uuid';
 // Components
 import MovieItem from "./movieItem";
 
-const MovieList = ({ list = [], onClick }) => {
+const MovieList = ({ list = [], onClick, active }) => {
     const movieList = list.map(movie => {
         return (
             <MovieItem
                 key={uuid()}
+                active={active}
                 onClick={onClick}
-                title={movie.title}
-                release={movie.release}
+                movie={movie}
             />
         );
     });
