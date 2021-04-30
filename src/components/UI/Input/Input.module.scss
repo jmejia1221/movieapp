@@ -5,4 +5,7 @@
     padding: 1rem;
     box-sizing: border-box;
     border: 1px solid var(--grey);
+    &.error {
+        border: 1px solid red;
+    }
 }

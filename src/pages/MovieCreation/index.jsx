@@ -15,6 +15,11 @@ const MovieCreation = () => {
     const [base64, setBase64] = useState('');
     const history = useHistory();
     const [textareaValue, setTextareaValue] = useState('');
+    const [formInput, setFormInput] = useState({
+        title: true,
+        release: true,
+        file: true
+    });
 
     const textareaHandler = (e) => {
         setTextareaValue(e.target.value);
@@ -24,15 +29,26 @@ const MovieCreation = () => {
         e.preventDefault();
         const data = new FormData(formRef.current);
         const newMovie = {};
+
         for (const entry of data.entries()) {
-            console.log('description', entry)
             if (entry[1] === 'file') newMovie = {...newMovie, file: base64};
             newMovie[entry[0]] = entry[1];
             newMovie["id"] = uuid();
             newMovie["description"] = textareaValue;
         }
+
+        if (!newMovie["release"] || !newMovie["title"] || !Object.keys(newMovie["file"]).length){
+            setFormInput({
+                title: !!newMovie["title"],
+                release: !!newMovie["release"],
+                file: !!Object.keys(newMovie["file"]).length
+            });
+            return;
+        }
+
         const getMovies = localStorage.getItem('movies');
         const movies = JSON.parse(getMovies) || [];
+
         if (!movies) movies = [newMovie]
         if (movies) movies.push(newMovie)
         localStorage.setItem('movies', JSON.stringify(movies));
@@ -77,9 +93,9 @@ const MovieCreation = () => {
             </header>
             <section className={styles.formContent}>
                 <form ref={formRef} onSubmit={saveMovieHandler} id="description">
-                    <Input name="title" placeholder="Movie title" type="text" />
-                    <Input name="date" type="date" />
-                    <Input name="file" type="file" onChange={handleFileInputChange} />
+                    <Input name="title" placeholder="Movie title" type="text" isValid={formInput["title"]} />
+                    <Input name="release" type="date" isValid={formInput["release"]} />
+                    <Input name="file" type="file" onChange={handleFileInputChange} isValid={formInput["file"]} />
                     <Textarea name="description" onchange={textareaHandler} placeholder="Add description" />
                 </form>
             </section>

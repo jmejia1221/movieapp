@@ -4,8 +4,20 @@
   border-radius: 1rem;
   margin-bottom: 1.5rem;
   cursor: pointer;
+  display: flex;
   &:hover {
     border-left: .5rem solid var(--secondary);
+  }
+  &.nopointer {
+    cursor: auto;
+  }
+  .image {
+    margin-right: 2rem;
+    img {
+      width: 100px;
+      height: 150px;
+      object-fit: contain;
+    }
   }
   .title {
     margin: 0;

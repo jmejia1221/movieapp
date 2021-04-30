@@ -7,13 +7,20 @@ import classNames from "classnames";
 import styles from './MovieItem.module.scss';
 
 const MovieItem = ({ movie, onClick, active }) => {
-    const { title, date, id } = movie;
+    const { title, release, id, image } = movie;
 
     return <>
-        <li className={classNames(styles.item, {[styles.active]: id === active })}
+        <li className={classNames(styles.item, {[styles.active]: id === active, [styles.nopointer] : image})}
             onClick={() => onClick(movie)}>
-            <h3 className={styles.title}>{title}</h3>
-            <span>{date}</span>
+            <div className={styles.image}>
+                { image && (
+                    <img src={image} />
+                )}
+            </div>
+            <div>
+                <h3 className={styles.title}>{title}</h3>
+                <span>{release}</span>
+            </div>
         </li>
     </>;
 };

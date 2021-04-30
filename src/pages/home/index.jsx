@@ -14,12 +14,14 @@ import styles from './Home.module.scss';
 const Home = () => {
     const history = useHistory();
     const [movieDetail, setMovieDetail] = useState({});
-    const [movieList, setMovieList] = useState([])
+    const [movieList, setMovieList] = useState([]);
+
+    let addMovieButton = null;
+    let movieListContent = null;
 
     useEffect(() => {
         const movies = localStorage.getItem('movies');
         const moviesToJson = JSON.parse(movies);
-        console.log('movies', moviesToJson)
         if (movies) setMovieList(moviesToJson);
     }, []);
 
@@ -31,22 +33,34 @@ const Home = () => {
         setMovieDetail(movie)
     };
 
-    return (
-        <>
+    if (movieList.length) {
+        addMovieButton = (
             <Button
                 classname={styles.buttonAddMovie}
                 onClick={addMovieHandler}>
                 Add Movie
             </Button>
+        );
+        movieListContent = (
+            <aside className={styles.aside}>
+                <MovieList
+                    active={movieDetail.id}
+                    onClick={showMovieDetail}
+                    list={movieList} />
+            </aside>
+        );
+    }
+
+
+    return (
+        <>
+            {addMovieButton}
             <div className={styles.container}>
-                <aside className={styles.aside}>
-                    <MovieList
-                        active={movieDetail.id}
-                        onClick={showMovieDetail}
-                        list={movieList} />
-                </aside>
+                {movieListContent}
                 <section className={styles.detail}>
-                    <MovieDetail movieDetail={movieDetail} />
+                    <MovieDetail
+                        addMovieHandler={addMovieHandler}
+                        movieDetail={movieDetail} />
                 </section>
             </div>
         </>

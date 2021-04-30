@@ -25,7 +25,6 @@
         height: 70%;
         border-top-right-radius: 1.5rem;
         border-top-left-radius: 1.5rem;
-        background-color: red;
       }
       figcaption {
         padding: 1rem 2rem;
@@ -41,6 +40,24 @@
         .release {
           color: var(--grey-standard);
         }
+      }
+    }
+    .noMovieSelected {
+      font-size: 4rem;
+      position: absolute;
+      font-weight: bold;
+      left: 50%;
+      top: 10rem;
+      text-align: center;
+      transform: translateX(-50%);
+      .or {
+        color: var(--grey-dark);
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: normal;
+      }
+      p {
+        margin: 0;
       }
     }
   }
