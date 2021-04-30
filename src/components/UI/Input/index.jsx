@@ -1,8 +1,16 @@
 import React from "react";
 
-const Input = () => {
+// CSS
+import styles from './Input.module.scss';
+
+const Input = ({ type, classname, placeholder, name, onChange }) => {
     return (
-        <input/>
+        <input
+            name={name}
+            onChange={onChange}
+            placeholder={placeholder}
+            className={`${classname} ${styles.input}`}
+            type={type} />
     );
 };
 
