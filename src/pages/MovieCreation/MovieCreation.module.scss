@@ -1,0 +1,30 @@
+.container {
+    max-width: 60rem;
+    border-radius: 1.5rem;
+    background-color: var(--white);
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    box-shadow: 2px 2px 25px var( --grey-medium);
+    .header {
+        display: flex;
+        padding: 2rem;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+            margin: 0;
+            color: var(--primary);
+        }
+    }
+    .formContent {
+        padding: 2rem;
+        input {
+            margin-bottom: 2rem;
+        }
+        textarea {
+            min-height: 15rem;
+            padding: 1rem;
+        }
+    }
+}

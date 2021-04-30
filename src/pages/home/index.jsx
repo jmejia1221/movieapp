@@ -1,10 +1,6 @@
-import React, { useEffect, useReducer, useState } from 'react';
-// import { v4 as uuid } from 'uuid';
+import React, { useEffect, useState } from 'react';
 
 import { useHistory } from "react-router-dom";
-
-// import reducer from './reducers/movieListReducer';
-// import { addMovie } from "./actions/movieListAction";
 
 // components
 import Button from "../../components/UI/Button";
@@ -14,13 +10,9 @@ import MovieDetail from "../../components/shared/movieDetail";
 // CSS
 import styles from './Home.module.scss';
 
-// const initialState = {
-//     movieList: []
-// };
 
 const Home = () => {
     const history = useHistory();
-    // const [state, dispatch] = useReducer(reducer, initialState);
     const [movieDetail, setMovieDetail] = useState({});
     const [movieList, setMovieList] = useState([])
 
@@ -30,15 +22,6 @@ const Home = () => {
         console.log('movies', moviesToJson)
         if (movies) setMovieList(moviesToJson);
     }, []);
-
-    // const movie = () => {
-    //     const payload = {
-    //         id: uuid(),
-    //         title: 'batman11',
-    //         release: '24/25/25'
-    //     };
-    //     addMovie(payload, dispatch)
-    // };
 
     const addMovieHandler = () => {
         history.push('/create-movie');
